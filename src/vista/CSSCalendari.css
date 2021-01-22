@@ -1,0 +1,32 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 08-abr-2019, 19:29:50
+    Author     : frand
+*/
+.calendari .month-year-pane{
+    -fx-background-color: aqua;
+    -fx-padding: 5 5 5 5;
+}
+.calendari .day-name-cell{
+   -fx-background-color: black; 
+   -fx-text-fill: aqua;
+   -fx-cell-size: 70;
+}
+
+.calendari {
+    -fx-font-size: 20px;
+    -fx-cell-height: 80px;
+}
+
+.calendari .cell {
+    -fx-cell-size: 70;
+}
+
+.micalendari .day-cell{
+    -fx-background-color: green;
+    
+}

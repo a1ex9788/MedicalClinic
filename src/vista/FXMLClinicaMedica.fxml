@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="85.0" tabMaxWidth="85.0" tabMinHeight="85.0" tabMinWidth="85.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.FXMLClinicaMedicaController">
+  <tabs>
+    <Tab closable="false">
+         <graphic>
+            <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imatges/cites.png" />
+               </image>
+               <viewport>
+                  <Rectangle2D minX="20.0" />
+               </viewport>
+            </ImageView>
+         </graphic>
+         <content>
+            <GridPane fx:id="gridAuxCites" alignment="CENTER">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <ImageView fx:id="fonsCites" fitHeight="800.0" fitWidth="1190.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../imatges/fons.jpg" />
+                     </image>
+                  </ImageView>
+                  <VBox fx:id="spacingVCites" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="25.0">
+                     <children>
+                        <HBox>
+                           <children>
+                              <ToolBar prefHeight="75.0" prefWidth="9030.0">
+                                 <items>
+                                    <Button maxWidth="5.0" minWidth="5.0" mnemonicParsing="false" visible="false" />
+                                    <StackPane>
+                                       <children>
+                                          <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#b9cada" height="35.0" stroke="BLACK" strokeMiterLimit="0.0" strokeType="INSIDE" width="35.0" />
+                                          <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../imatges/lupa.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                    <Button maxWidth="5.0" minWidth="5.0" mnemonicParsing="false" visible="false" />
+                                    <ComboBox fx:id="buscadorCita" onShowing="#buscadorCita" prefHeight="30.0" prefWidth="220.0" promptText="Cerca per pacient" />
+                                    <Button layoutX="58.0" layoutY="30.0" maxWidth="5.0" minWidth="5.0" mnemonicParsing="false" visible="false" />
+                                    <Button fx:id="borraSeleccio" disable="true" mnemonicParsing="false" onAction="#borraSeleccio" prefHeight="30.0" text="Borra selecció" />
+                                 </items>
+                              </ToolBar>
+                              <ToolBar layoutX="10.0" layoutY="10.0" nodeOrientation="RIGHT_TO_LEFT" prefWidth="8800.0">
+                                 <items>
+                                    <Button fx:id="eliminaCita" alignment="CENTER" contentDisplay="CENTER" disable="true" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#eliminaCita" prefHeight="65.0" prefWidth="65.0">
+                                       <font>
+                                          <Font size="30.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../imatges/paperera.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button maxWidth="5.0" minWidth="5.0" mnemonicParsing="false" visible="false" />
+                                    <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#novaCita" prefHeight="65.0" prefWidth="65.0">
+                                       <font>
+                                          <Font size="30.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../imatges/afegirCita.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </items>
+                              </ToolBar>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="spacingHCites" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="50.0">
+                           <children>
+                              <VBox fx:id="vBoxCalendari" alignment="TOP_CENTER" maxHeight="500.0" styleClass="calendari" stylesheets="@CSSCalendari.css" />
+                              <TableView fx:id="taulaCites" editable="true" prefHeight="9000.0" prefWidth="800.0" stylesheets="@CSSTaules.css">
+                                 <columns>
+                                    <TableColumn fx:id="horaCita" maxWidth="-1.0" minWidth="75.0" prefWidth="75.0" sortable="false" text="HORA" />
+                                    <TableColumn fx:id="nomPacientCita" maxWidth="1.7976931348623157E308" minWidth="300.0" prefWidth="363.0" text="PACIENT" />
+                                    <TableColumn fx:id="nomMetgeCita" maxWidth="1.7976931348623157E308" minWidth="300.0" prefWidth="363.0" text="METGE (SALA)" />
+                                 </columns>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </HBox>
+                     </children>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                     <padding>
+                        <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </GridPane>
+         </content>
+    </Tab>
+    <Tab closable="false">
+         <graphic>
+            <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imatges/pacient.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <content>
+            <GridPane fx:id="gridAuxPacients" alignment="CENTER">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <ImageView fx:id="fonsPacients" fitHeight="800.0" fitWidth="1190.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../imatges/fons.jpg" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </ImageView>
+                  <HBox fx:id="spacingHPacients" alignment="CENTER" spacing="50.0">
+                     <children>
+                        <VBox fx:id="spacingVPacients" alignment="CENTER" spacing="25.0">
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <ToolBar prefHeight="75.0" prefWidth="8950.0">
+                                       <items>
+                                          <Button maxWidth="5.0" minWidth="5.0" mnemonicParsing="false" visible="false" />
+                                          <StackPane>
+                                             <children>
+                                                <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#b9cada" height="35.0" stroke="BLACK" strokeMiterLimit="0.0" strokeType="INSIDE" width="35.0" />
+                                                <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../imatges/lupa.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </StackPane>
+                                          <Button maxWidth="5.0" minWidth="5.0" mnemonicParsing="false" visible="false" />
+                                          <TextField fx:id="buscadorPacient" prefWidth="190.0" promptText="Nom complet del pacient">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </items>
+                                    </ToolBar>
+                                    <ToolBar layoutX="10.0" layoutY="10.0" nodeOrientation="RIGHT_TO_LEFT" prefWidth="8850.0">
+                                       <items>
+                                          <Button fx:id="eliminaPacientBoto" alignment="CENTER" contentDisplay="CENTER" disable="true" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#eliminaPacient" prefHeight="65.0" prefWidth="65.0">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../imatges/paperera.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Button maxWidth="5.0" minWidth="5.0" mnemonicParsing="false" visible="false" />
+                                          <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#nouPacient" prefHeight="65.0" prefWidth="65.0">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../imatges/afegirPacient.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                       </items>
+                                    </ToolBar>
+                                 </children>
+                              </HBox>
+                              <TableView fx:id="taulaPacients" editable="true" prefHeight="9000.0" stylesheets="@CSSTaules.css">
+                                <columns>
+                                  <TableColumn fx:id="nomPacient" maxWidth="1.7976931348623157E308" minWidth="201.0" prefWidth="277.0" text="NOM" />
+                                    <TableColumn fx:id="identificacioPacient" maxWidth="1.7976931348623157E308" minWidth="201.0" prefWidth="319.0" text="IDENTIFICACIÓ" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" maxHeight="-Infinity">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <children>
+                              <StackPane>
+                                 <children>
+                                    <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#dee7ee" height="320.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" width="400.0" />
+                                    <GridPane>
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <ImageView fx:id="imatgeActual" fitHeight="146.0" fitWidth="132.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowSpan="4" GridPane.valignment="TOP">
+                                             <image>
+                                                <Image url="@../imatges/iconoPacient.png" />
+                                             </image>
+                                          </ImageView>
+                                          <VBox>
+                                             <children>
+                                                <HBox spacing="5.0">
+                                                   <children>
+                                                      <ImageView fitHeight="26.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" translateY="5.0">
+                                                         <image>
+                                                            <Image url="@../imatges/fletxa.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NOM">
+                                                         <font>
+                                                            <Font name="System Bold" size="20.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </HBox>
+                                                <Label fx:id="nomActual" translateX="25.0">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox layoutX="10.0" layoutY="10.0" GridPane.rowIndex="1">
+                                             <children>
+                                                <HBox spacing="5.0">
+                                                   <children>
+                                                      <ImageView fitHeight="26.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" translateY="5.0">
+                                                         <image>
+                                                            <Image url="@../imatges/fletxa.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="COGNOMS">
+                                                         <font>
+                                                            <Font name="System Bold" size="20.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </HBox>
+                                                <Label fx:id="cognomsActual" translateX="25.0">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox layoutX="10.0" layoutY="86.0" GridPane.rowIndex="2">
+                                             <children>
+                                                <HBox spacing="5.0">
+                                                   <children>
+                                                      <ImageView fitHeight="26.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" translateY="5.0">
+                                                         <image>
+                                                            <Image url="@../imatges/fletxa.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="IDENTIFICACIÓ">
+                                                         <font>
+                                                            <Font name="System Bold" size="20.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </HBox>
+                                                <Label fx:id="idActual" translateX="25.0">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox layoutX="10.0" layoutY="161.0" GridPane.rowIndex="3">
+                                             <children>
+                                                <HBox spacing="5.0">
+                                                   <children>
+                                                      <ImageView fitHeight="26.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" translateY="5.0">
+                                                         <image>
+                                                            <Image url="@../imatges/fletxa.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TELÈFON">
+                                                         <font>
+                                                            <Font name="System Bold" size="20.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </HBox>
+                                                <Label fx:id="tlfActual" translateX="25.0">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </padding>
+                                    </GridPane>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </GridPane>
+         </content>
+    </Tab>
+      <Tab closable="false">
+         <graphic>
+            <ImageView fitHeight="85.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imatges/metge.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <content>
+            <GridPane fx:id="gridAuxMetges" alignment="CENTER">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <ImageView fx:id="fonsMetges" fitHeight="800.0" fitWidth="1190.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../imatges/fons.jpg" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </ImageView>
+                  <HBox fx:id="spacingHMetges" spacing="50.0">
+                     <children>
+                        <VBox fx:id="spacingVMetges" alignment="CENTER" spacing="25.0">
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <ToolBar prefHeight="75.0" prefWidth="8950.0">
+                                       <items>
+                                          <Button maxWidth="5.0" minWidth="5.0" mnemonicParsing="false" visible="false" />
+                                          <StackPane>
+                                             <children>
+                                                <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#b9cada" height="35.0" stroke="BLACK" strokeMiterLimit="0.0" strokeType="INSIDE" width="35.0" />
+                                                <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../imatges/lupa.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </StackPane>
+                                          <Button maxWidth="5.0" minWidth="5.0" mnemonicParsing="false" visible="false" />
+                                          <TextField fx:id="buscadorMetge" prefWidth="190.0" promptText="Nom complet del doctor/a">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </items>
+                                    </ToolBar>
+                                    <ToolBar layoutX="10.0" layoutY="10.0" nodeOrientation="RIGHT_TO_LEFT" prefWidth="8850.0">
+                                       <items>
+                                          <Button fx:id="eliminaMetgeBoto" alignment="CENTER" contentDisplay="CENTER" disable="true" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#eliminaMetge" prefHeight="65.0" prefWidth="65.0">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../imatges/paperera.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Button maxWidth="5.0" minWidth="5.0" mnemonicParsing="false" visible="false" />
+                                          <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#nouMetge" prefHeight="65.0" prefWidth="65.0">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../imatges/afegirMetge.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                       </items>
+                                    </ToolBar>
+                                 </children>
+                              </HBox>
+                              <TableView fx:id="taulaMetges" editable="true" prefHeight="9000.0" stylesheets="@CSSTaules.css">
+                                 <columns>
+                                    <TableColumn fx:id="nomMetge" maxWidth="1.7976931348623157E308" minWidth="201.0" prefWidth="277.0" text="NOM" />
+                                    <TableColumn fx:id="identificacioMetge" maxWidth="1.7976931348623157E308" minWidth="201.0" prefWidth="319.0" text="IDENTIFICACIÓ" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children></VBox>
+                        <VBox alignment="CENTER">
+                           <children>
+                              <StackPane>
+                                 <children>
+                                    <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#dee7ee" height="530.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" width="400.0" />
+                                    <GridPane>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <ImageView fx:id="imatgeActualMetge" fitHeight="146.0" fitWidth="132.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowSpan="4" GridPane.valignment="TOP">
+                                             <image>
+                                                <Image url="@../imatges/iconoMetge.png" />
+                                             </image>
+                                          </ImageView>
+                                          <VBox>
+                                             <children>
+                                                <HBox spacing="5.0">
+                                                   <children>
+                                                      <ImageView fitHeight="26.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" translateY="5.0">
+                                                         <image>
+                                                            <Image url="@../imatges/fletxa.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NOM">
+                                                         <font>
+                                                            <Font name="System Bold" size="20.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </HBox>
+                                                <Label fx:id="nomActualMetge" translateX="25.0">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox layoutX="10.0" layoutY="10.0" GridPane.rowIndex="1">
+                                             <children>
+                                                <HBox spacing="5.0">
+                                                   <children>
+                                                      <ImageView fitHeight="26.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" translateY="5.0">
+                                                         <image>
+                                                            <Image url="@../imatges/fletxa.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="COGNOMS">
+                                                         <font>
+                                                            <Font name="System Bold" size="20.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </HBox>
+                                                <Label fx:id="cognomsActualMetge" translateX="25.0">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox layoutX="10.0" layoutY="86.0" GridPane.rowIndex="2">
+                                             <children>
+                                                <HBox spacing="5.0">
+                                                   <children>
+                                                      <ImageView fitHeight="26.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" translateY="5.0">
+                                                         <image>
+                                                            <Image url="@../imatges/fletxa.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="IDENTIFICACIÓ">
+                                                         <font>
+                                                            <Font name="System Bold" size="20.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </HBox>
+                                                <Label fx:id="idActualMetge" translateX="25.0">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox layoutX="10.0" layoutY="161.0" GridPane.rowIndex="3">
+                                             <children>
+                                                <HBox spacing="5.0">
+                                                   <children>
+                                                      <ImageView fitHeight="26.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" translateY="5.0">
+                                                         <image>
+                                                            <Image url="@../imatges/fletxa.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TELÈFON">
+                                                         <font>
+                                                            <Font name="System Bold" size="20.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </HBox>
+                                                <Label fx:id="tlfActualMetge" translateX="25.0">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox GridPane.columnSpan="2" GridPane.rowIndex="6">
+                                             <children>
+                                                <HBox spacing="5.0">
+                                                   <children>
+                                                      <ImageView fitHeight="26.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" translateY="5.0">
+                                                         <image>
+                                                            <Image url="@../imatges/fletxa.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DIES LABORALS">
+                                                         <font>
+                                                            <Font name="System Bold" size="20.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </HBox>
+                                                <Label fx:id="diesLaborals" translateX="25.0">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox layoutX="30.0" layoutY="273.0" GridPane.columnSpan="2" GridPane.rowIndex="5">
+                                             <children>
+                                                <HBox spacing="5.0">
+                                                   <children>
+                                                      <ImageView fitHeight="26.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" translateY="5.0">
+                                                         <image>
+                                                            <Image url="@../imatges/fletxa.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="HORARI DE CONSULTES">
+                                                         <font>
+                                                            <Font name="System Bold" size="20.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </HBox>
+                                                <Label fx:id="horariConsultes" translateX="25.0">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox layoutX="30.0" layoutY="30.0" GridPane.columnSpan="2" GridPane.rowIndex="4">
+                                             <children>
+                                                <HBox spacing="5.0">
+                                                   <children>
+                                                      <ImageView fitHeight="26.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" translateY="5.0">
+                                                         <image>
+                                                            <Image url="@../imatges/fletxa.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SALA ON PASSA CONSULTA">
+                                                         <font>
+                                                            <Font name="System Bold" size="20.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </HBox>
+                                                <Label fx:id="salaConsultes" translateX="25.0">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </padding>
+                                    </GridPane>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </GridPane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>

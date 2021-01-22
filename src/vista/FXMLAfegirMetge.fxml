@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.FXMLAfegirMetgeController">
+   <children>
+      <ImageView fitHeight="500.0" fitWidth="500.0" pickOnBounds="true">
+         <image>
+            <Image url="@../imatges/fons2.jpg" />
+         </image>
+      </ImageView>
+      <GridPane alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="70.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <padding>
+            <Insets bottom="20.0" left="50.0" right="50.0" top="30.0" />
+         </padding>
+         <children>
+            <TextField fx:id="nom" maxWidth="1.7976931348623157E308" promptText="NOM" GridPane.columnSpan="2" GridPane.rowIndex="1">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="cognoms" maxWidth="1.7976931348623157E308" promptText="COGNOMS" GridPane.columnSpan="2" GridPane.rowIndex="2">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="identificacio" maxWidth="1.7976931348623157E308" promptText="DNI/NIF/NIE" GridPane.columnSpan="2" GridPane.rowIndex="3">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="telefon" maxWidth="1.7976931348623157E308" promptText="TELÈFON" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="3">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </TextField>
+            <ComboBox fx:id="iniciConsulta" prefHeight="30.0" prefWidth="209.0" promptText="HORA INICI CONSULTES" GridPane.columnSpan="2" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </ComboBox>
+            <ComboBox fx:id="fiConsulta" disable="true" prefHeight="30.0" prefWidth="209.0" promptText="HORA FI CONSULTES" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </ComboBox>
+            <StackPane GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+               <children>
+                  <ImageView fitHeight="75.0" fitWidth="195.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../imatges/fonsBox.png" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DIES LABORALS">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <HBox alignment="CENTER" spacing="6.0">
+                           <children>
+                              <VBox alignment="CENTER">
+                                 <children>
+                                    <CheckBox fx:id="dillunsBox" mnemonicParsing="false" translateX="2.0" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DL">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="50.0" layoutY="10.0">
+                                 <children>
+                                    <CheckBox fx:id="dimartsBox" mnemonicParsing="false" translateX="2.0" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DT">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="60.0" layoutY="10.0">
+                                 <children>
+                                    <CheckBox fx:id="dimecresBox" mnemonicParsing="false" translateX="2.0" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DC">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="71.0" layoutY="10.0">
+                                 <children>
+                                    <CheckBox fx:id="dijousBox" mnemonicParsing="false" translateX="2.0" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DJ">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="81.0" layoutY="10.0">
+                                 <children>
+                                    <CheckBox fx:id="divendresBox" mnemonicParsing="false" translateX="2.0" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DV">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="94.0" layoutY="10.0">
+                                 <children>
+                                    <CheckBox fx:id="disabteBox" mnemonicParsing="false" translateX="2.0" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DS">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="115.0" layoutY="10.0">
+                                 <children>
+                                    <CheckBox fx:id="diumengeBox" mnemonicParsing="false" translateX="2.0" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DG">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#afegirFoto" prefHeight="31.0" prefWidth="83.0" text="Afegir foto" GridPane.rowIndex="6" />
+            <Text fx:id="textError" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="error" GridPane.rowIndex="7" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font size="14.0" />
+               </font></Text>
+            <HBox alignment="BOTTOM_RIGHT" spacing="10.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="7">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#guardarNouMetge" text="Guardar" />
+                  <Button mnemonicParsing="false" onAction="#cancelar" text="Cancel·lar" />
+               </children>
+            </HBox>
+            <ImageView fx:id="imatgeMetge" fitHeight="131.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.rowSpan="3" GridPane.valignment="TOP">
+               <image>
+                  <Image url="@../imatges/iconoMetge.png" />
+               </image>
+            </ImageView>
+            <ComboBox fx:id="salaConsulta" prefHeight="30.0" prefWidth="209.0" promptText="SALA DE CONSULTA" GridPane.columnSpan="2" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </ComboBox>
+         </children>
+      </GridPane>
+   </children>
+</StackPane>
